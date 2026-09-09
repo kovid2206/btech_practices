@@ -12,6 +12,7 @@ int main()
   FILE *fp;
   int i, flag = 1, a;
   char s[16];
+  //Creation of Bankdata.txt file throgh linkedlist
   /*
     printf("Give Bank data\n");
     while (flag != 0)
@@ -65,8 +66,9 @@ int main()
     }
     fclose(fp);
     */
-
+//Reading of bankdata.txt file to access existing data
   fp = fopen("bankdata.txt", "r");
+  //Taking data into linkedlist for operations
   while (1)
   {
     newnode = (struct bank *)malloc(sizeof(struct bank));
@@ -88,9 +90,9 @@ int main()
   }
   temp->next = NULL;
   fclose(fp);
+  
   i = 1;
   int m;
-
   printf("WELCOME TO FIROZABAD BANK\n\n\n\n");
   while (i != 0)
   {
@@ -101,9 +103,14 @@ int main()
 
     switch (a)
     {
-
-    case 1:
+//Editing linkedlist as per operations
+    case 1:        //Creating a new account
       newnode = (struct bank *)malloc(sizeof(struct bank));
+      if(newnode==NULL)
+      {
+        printf("Not more memory available");
+        break;
+      }
       temp->next = newnode;
       temp = newnode;
       getchar();
@@ -129,7 +136,7 @@ int main()
       temp->next = NULL;
       break;
 
-    case 2:
+    case 2:   //Deleting of account
       printf("Enter account number");
       scanf("%s", s);
       temp = head;
@@ -154,7 +161,7 @@ int main()
         printf("Your account not found\n");
       break;
 
-    case 3:
+    case 3:            //Checking balance
       printf("Enter account number");
       scanf("%s", s);
       temp = head;
@@ -172,7 +179,7 @@ int main()
         printf("Your account not found\n");
       break;
 
-    case 4:
+    case 4:        //Depositing money
       printf("Enter account number");
       scanf("%s", s);
       printf("Enter amount of money you want to deposite");
@@ -192,7 +199,7 @@ int main()
         printf("Your account not found\n");
       break;
 
-    case 5:
+    case 5:       //Withdraw money
       printf("Enter account number");
       scanf("%s", s);
       printf("Enter amount of money you want to withdraw");
@@ -219,7 +226,7 @@ int main()
         printf("Your account not found\n");
       break;
 
-    case 6:
+    case 6:    //Seeing all data
       temp = head;
       while (temp != NULL)
       {
@@ -233,8 +240,8 @@ int main()
       printf("\n");
     }
     temp = head;
+    //Updating of data file on each operation
     fp = fopen("bankdata.txt", "w");
-
     while (temp != NULL)
     {
 
