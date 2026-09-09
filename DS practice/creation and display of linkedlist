@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main() {
+ struct node *head=NULL,*temp,*newnode;
+ int flag=1;
+    //creation of linkedlist
+    while(flag!=0){
+        newnode=(struct node *)malloc(sizeof(struct node));
+        if(newnode==NULL){
+            printf("cannot allocate more memory");
+            break;}
+        printf("enter data");
+        scanf("%d",&newnode->data);
+        if(head==NULL){
+            head=newnode;
+            temp=newnode;
+        }
+        else{
+            temp->next=newnode;
+            temp=newnode;
+        }
+        printf("Do you want to enter more data? Enter 1 for yes 0 for no");
+        scanf("%d",&flag);
+    }
+    temp->next=NULL;
+
+    //display of linkedlist
+    int i=1;
+    temp=head;
+    while(temp!=NULL){
+        printf("node %d data %d\n",i,temp->data);
+        temp=temp->next;
+        i++;
+    }
+    printf("---linkedlist finishes---");
+    
+
+    return 0;
+}
