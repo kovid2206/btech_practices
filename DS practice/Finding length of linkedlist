@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main() {
+ struct node *head,*first,*second,*third,*temp;
+
+ //creation of linkedlist by hardcoded input
+    head=(struct node*)malloc(sizeof(struct node));
+    first=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+
+    //Entering values and connecting with next node
+    head->data=10;
+    head->next=first;
+    first->data=20;
+    first->next=second;
+    second->data=10;
+    second->next=third;
+    third->data=20;
+    third->next=NULL;
+
+    //Finding length of linkedlist
+    int i=0;
+    temp=head;
+    while(temp!=NULL){
+        i++;
+        temp=temp->next;
+    }
+    printf("Length of linkedlist by slow method %d",i);
+    //length of linkedlist found as i
+        
+    return 0;
+}
