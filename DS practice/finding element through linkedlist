@@ -1,0 +1,42 @@
+//Finding element in linkedlist through linear search
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main() {
+ struct node *head,*first,*second,*third,*temp;
+
+ //creation of linkedlist by hardcoded input
+    head=(struct node*)malloc(sizeof(struct node));
+    first=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+
+    //Entering values and connecting with next node
+    head->data=10;
+    head->next=first;
+    first->data=20;
+    first->next=second;
+    second->data=30;
+    second->next=third;
+    third->data=40;
+    third->next=NULL;
+
+    //Searching an element in linkedlist
+    int key=40,i=0,flag=0;
+    temp=head;
+    while(temp!=NULL){
+        i++;
+        if(key==temp->data){
+            flag=1;
+            break;}
+        temp=temp->next;
+    }
+    if(flag==1)
+       printf("Found as %dth node",i);
+    else
+        printf("Not found");   
+    return 0;
+}
