@@ -1,0 +1,94 @@
+//Implementation of stack using array
+#include<stdio.h>
+#define MAX 5
+int a[MAX],top=-1;
+//Function to push an element
+void push(int n){
+	if(top==MAX-1){
+		printf("Stack overflow for %d\n",n);
+	}
+	else{
+		top++;
+		printf("push of %d\n",n);
+		a[top]=n;
+	}
+}
+//Function to pop an element
+void pop(){
+	if(top==-1){
+		printf("Stack underflow");
+	}
+	else{
+		printf("pop of %d\n",a[top]);
+		
+		top--;
+	}
+}
+//Function to view the top element	
+void peek(){
+	if(top==-1){
+		printf("Stack is empty\n");
+	}
+	else{
+		printf("Top element of stack is %d\n",a[top]);       
+	}
+}
+//Function to display stack
+void display(){
+    int i;
+	if(top==-1){
+		printf("Stack is empty");
+	}
+	else{
+		printf("Stack elements are:\n");
+		for(i=top;i>=0;i--){
+			printf("%d\n",a[i]);
+		}
+	}
+}
+	
+
+int main(){
+	int n,t;
+	
+	while(1){
+	
+	printf("\n---Stack Menu---\n");
+	printf("1. Push\n");
+	printf("2. Pop\n");
+	printf("3. Peek\n");
+	printf("4. Display\n");
+	printf("5. Exit\n");
+	printf("Enter choice \n");
+	scanf("%d",&n);
+	switch(n){
+		case 1:
+			printf("Give element for push");
+			scanf("%d",&t);
+			push(t);
+			break;
+			
+		case 2:
+			pop();
+			break;
+			
+		case 3:
+			peek();
+			break;
+			
+		case 4:
+			display();
+			break;
+			
+		case 5:
+			return 0;
+			
+		default:
+			printf("Invalid choice! Try again\n");
+			
+	}
+}
+	return 0;
+	
+	
+}
