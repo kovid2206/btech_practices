@@ -24,7 +24,7 @@ int main() {
     third->data=40;
     third->next=NULL;
 
-    //Searching an element in linkedlist
+    //Inserting a node at give position in linkedlist
     int length=4,n,i=1,flag=0;
     printf("Give position from inserting node for linkedlist of length %d",length);
     scanf("%d",&n);
