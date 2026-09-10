@@ -1,0 +1,53 @@
+//Insertion at given position
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main() {
+ struct node *head,*first,*second,*third,*temp,*newnode;
+
+ //creation of linkedlist by hardcoded input
+    head=(struct node*)malloc(sizeof(struct node));
+    first=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+
+    //Entering values and connecting with next node
+    head->data=10;
+    head->next=first;
+    first->data=20;
+    first->next=second;
+    second->data=30;
+    second->next=third;
+    third->data=40;
+    third->next=NULL;
+
+    //Searching an element in linkedlist
+    int length=4,n,i=1,flag=0;
+    printf("Give position from inserting node for linkedlist of length %d",length);
+    scanf("%d",&n);
+    temp=head;
+    while(temp!=NULL){
+        if(n==1){
+            newnode=(struct node*)malloc(sizeof(struct node));
+            newnode->next=head;
+            head=newnode;
+            flag=1;
+            break;}
+       if(i==n-1){
+            newnode=(struct node*)malloc(sizeof(struct node));
+            newnode->next=temp->next;
+            temp->next=newnode;
+            flag=1;
+            break;}
+        temp=temp->next;
+        i++;
+    }
+    if(flag==1)
+       printf("Node inserted successfully at %d position in linkedlist",n);
+    else
+        printf("Node can not be inserted at %d position in linkedlist",n);   
+    return 0;
+}
