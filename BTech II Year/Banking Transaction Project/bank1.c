@@ -119,25 +119,25 @@ int main()
       fgets(temp->acno, 15, stdin);
       temp->acno[strcspn(temp->acno, "\n")] = '\0';
 
-      printf("enter name");
+      printf("enter name ");
       fgets(temp->name, 30, stdin);
       temp->name[strcspn(temp->name, "\n")] = '\0';
 
-      printf("enter father name");
+      printf("enter father name ");
       fgets(temp->fname, 30, stdin);
       temp->fname[strcspn(temp->fname, "\n")] = '\0';
 
-      printf("enter adress");
+      printf("enter adress ");
       fgets(temp->ad, 100, stdin);
       temp->ad[strcspn(temp->ad, "\n")] = '\0';
 
-      printf("enter balance");
+      printf("enter balance ");
       scanf("%d", &temp->bal);
       temp->next = NULL;
       break;
 
     case 2:   //Deleting of account
-      printf("Enter account number");
+      printf("Enter account number ");
       scanf("%s", s);
       temp = head;
       while (temp != NULL)
@@ -162,7 +162,7 @@ int main()
       break;
 
     case 3:            //Checking balance
-      printf("Enter account number");
+      printf("Enter account number ");
       scanf("%s", s);
       temp = head;
       while (temp != NULL)
@@ -180,9 +180,9 @@ int main()
       break;
 
     case 4:        //Depositing money
-      printf("Enter account number");
+      printf("Enter account number ");
       scanf("%s", s);
-      printf("Enter amount of money you want to deposite");
+      printf("Enter amount of money you want to deposite ");
       scanf("%d", &m);
       temp = head;
       while (temp != NULL)
@@ -200,9 +200,9 @@ int main()
       break;
 
     case 5:       //Withdraw money
-      printf("Enter account number");
+      printf("Enter account number ");
       scanf("%s", s);
-      printf("Enter amount of money you want to withdraw");
+      printf("Enter amount of money you want to withdraw ");
       scanf("%d", &m);
       temp = head;
       while (temp != NULL)
@@ -218,6 +218,7 @@ int main()
           else
           {
             temp->bal = (temp->bal) - m;
+            flag=1;
             break;
           }
         }
@@ -251,4 +252,5 @@ int main()
     }
     fclose(fp);
   }
+    return 0;
 }
