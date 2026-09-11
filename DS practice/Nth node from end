@@ -1,0 +1,47 @@
+//Finding Nth node from end
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main() {
+ struct node *head,*first,*second,*third,*temp,*newnode;
+
+ //creation of linkedlist by hardcoded input
+    head=(struct node*)malloc(sizeof(struct node));
+    first=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+
+    //Entering values and connecting with next node
+    head->data=10;
+    head->next=first;
+    first->data=20;
+    first->next=second;
+    second->data=30;
+    second->next=third;
+    third->data=40;
+    third->next=NULL;
+  temp=head;
+    int n=0,a,i=0,flag=0;
+    while(temp!=NULL){
+        n++;
+        temp=temp->next;
+    }
+    printf("Give node from end to find");
+    scanf("%d",&a);
+    temp=head;
+     while(temp!=NULL){
+        i++;
+         if(i==n-a+1){
+             printf("Nth node from end with data :%d",temp->data);
+             flag=1;
+             break;
+         }    
+        temp=temp->next;
+    }
+    if(flag==0)
+        printf("Node cannot be found");
+    return 0;
+}
